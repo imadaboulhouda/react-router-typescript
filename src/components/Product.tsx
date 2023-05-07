@@ -14,7 +14,7 @@ function Product() {
       }
     };
     f();
-  }, []);
+  }, [id]);
 
   return (
     <>
