@@ -11,14 +11,7 @@ this.addEventListener("install", (event) => {
 this.addEventListener("fetch", (e) => {
   e.respondWith(
     caches.match(e.request).then((rep) => {
-      return fetch(e.request).catch(() => {
-        caches.match("offline.html");
-      });
+      return fetch(e.request).catch(() => rep);
     })
   );
-});
-
-this.addEventListener("activate", (e) => {
-  const cacheWhiteList = [];
-  cacheWhiteList.push(CACHE);
 });
